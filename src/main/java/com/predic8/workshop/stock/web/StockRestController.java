@@ -8,6 +8,7 @@ import com.predic8.workshop.stock.event.Operation;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -35,8 +36,11 @@ public class StockRestController {
 	}
 
 	@GetMapping
-	public List<Stock> index() {
-		return articles.entrySet().stream().map(Entry::getValue).collect(toList());
+	public Collection<Stock> index() {
+
+		//return articles.entrySet().stream().map(Entry::getValue).collect(toList());
+
+		return articles.values();
 	}
 
 	@GetMapping("/{uuid}")
